@@ -42,8 +42,8 @@ namespace LPT
 
                     //Session["auto_id"] = dtLoginDetails.Rows[0]["auto_id"].ToString();
 
-                    //Response.Redirect("Index.aspx", true);
-                    Response.Redirect("payroll.aspx", true);
+                    Response.Redirect("Index.aspx", true);
+
                 }
                 else
                 {
