@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services;
 
 namespace LPT
 {
@@ -38,7 +39,8 @@ namespace LPT
             {
                 if (dtLoginDetails.Rows[0]["User_Name"].ToString().Equals(txt_user.Text.Trim()) && dtLoginDetails.Rows[0]["Password"].ToString().Equals(txt_Password.Text.Trim()))
                 {
-                    Session["UserId"] = User_Name;
+                    Session["UserId"] = dtLoginDetails.Rows[0]["User_Name"].ToString();
+                    Session["Id"] = dtLoginDetails.Rows[0]["Id"].ToString();
 
                     //Session["auto_id"] = dtLoginDetails.Rows[0]["auto_id"].ToString();
 
@@ -60,7 +62,7 @@ namespace LPT
         DataTable GetLoginInfo(string username, string password)
         {
             Login_PL pL = new Login_PL();
-            pL.OpCode = 11;
+            pL.OpCode = 41;
             pL.User_Name = username;
             pL.Password = password;
            
@@ -74,5 +76,8 @@ namespace LPT
             return pL.dt;
 
         }
+
+        
     }
 }
+

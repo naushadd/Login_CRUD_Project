@@ -15,6 +15,10 @@ namespace LPT
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["Id"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
 
             if (!IsPostBack)
             {
@@ -43,12 +47,14 @@ namespace LPT
             if (string.IsNullOrEmpty(staffid))
             {
                 Pl.id = 0;
+                Pl.Created_By = HttpContext.Current.Session["Id"].ToString();
                 Pl.staff = 11;
                 msg = "Record save successfully";
             }
             else
             {
                 Pl.id = Convert.ToInt32(staffid);
+                Pl.Updated_By = HttpContext.Current.Session["Id"].ToString();
                 Pl.staff = 21;
                 msg = "Record update successfully";
 
@@ -113,5 +119,7 @@ namespace LPT
 
 
         }
+
+        
     }   
 }

@@ -72,6 +72,7 @@
     <Content Include="Ajax_Display.aspx" />
     <Content Include="Demo.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="Payroll_List.aspx" />
     <Content Include="payroll_master.js" />
     <Content Include="staff_master.js" />
@@ -6629,6 +6630,13 @@
     </Compile>
     <Compile Include="Login_Master\Login_DL.cs" />
     <Compile Include="Login_Master\Login_PL.cs" />
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Payroll.aspx.cs">
       <DependentUpon>Payroll.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
