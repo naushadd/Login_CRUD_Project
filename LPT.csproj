@@ -73,6 +73,8 @@
     <Content Include="Demo.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="Password_Reset.aspx" />
+    <Content Include="Password_Update.aspx" />
     <Content Include="Payroll_List.aspx" />
     <Content Include="payroll_master.js" />
     <Content Include="staff_master.js" />
@@ -6636,6 +6638,20 @@
     </Compile>
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Password_Reset.aspx.cs">
+      <DependentUpon>Password_Reset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Password_Reset.aspx.designer.cs">
+      <DependentUpon>Password_Reset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Password_Update.aspx.cs">
+      <DependentUpon>Password_Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Password_Update.aspx.designer.cs">
+      <DependentUpon>Password_Update.aspx</DependentUpon>
     </Compile>
     <Compile Include="Payroll.aspx.cs">
       <DependentUpon>Payroll.aspx</DependentUpon>

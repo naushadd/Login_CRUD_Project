@@ -20,6 +20,7 @@ namespace LPT.Login_Master {
         public int Id { get; set; }
         public string User_Name { get; set; }
         public string Password { get; set; }
+        public string User_Email { get; set; }
 
     }
 }

@@ -28,6 +28,8 @@ namespace LPT.staff
                 cmd.Parameters.AddWithValue("@phone", PL.phone);
                 cmd.Parameters.AddWithValue("@email", PL.email);
                 cmd.Parameters.AddWithValue("@status", PL.status);
+                cmd.Parameters.AddWithValue("@Created_By", PL.Created_By);
+                cmd.Parameters.AddWithValue("@Updated_By", PL.Updated_By);
                 //cmd.Parameters.AddWithValue("@Search", obj_PL.Search);
 
 

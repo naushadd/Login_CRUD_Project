@@ -24,9 +24,10 @@ namespace LPT.Login_Master {
 
                 //cmd.Parameters.Add("@auto_id", SqlDbType.NVarChar, 15).Value = obj_PL.auto_id;
                 //cmd.Parameters["@auto_id"].Direction = ParameterDirection.InputOutput;
-                cmd.Parameters.AddWithValue("@id", obj_PL.Id);
+                cmd.Parameters.AddWithValue("@Id", obj_PL.Id);
                 cmd.Parameters.AddWithValue("@User_Name",obj_PL.User_Name);
                 cmd.Parameters.AddWithValue("@Password",obj_PL.Password);
+                cmd.Parameters.AddWithValue("@User_Email", obj_PL.User_Email);
 
 
                 cmd.Parameters.Add("@isException",SqlDbType.Bit);

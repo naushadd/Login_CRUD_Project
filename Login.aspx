@@ -28,7 +28,7 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <label class="control-label">User Name ❤<span class="required" aria-required="true"></span></label>
+                                                <label class="control-label">User Name<span class="required" aria-required="true"></span></label>
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="txt_user" CssClass="number form-control input-sm req req_control" runat="server" Placeholder="User Name"></asp:TextBox></td>
@@ -44,8 +44,11 @@
                                 </table>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-2 col-md-offset-5">
+                                <div class="col-md-10 col-md-offset-4">
                                     <asp:Button ID="btnsubmit" runat="server" Text="Sign In" CssClass="btn btn-success" OnClick="Btn_login" />
+                                    
+                                    <span>Forgot Password?<a href="Password_Reset.aspx" style="color:red"> Click here to reset</a></span>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -53,6 +56,7 @@
                 </div>
             </div>
         </div>
+
 
         <asp:HiddenField ID="txt_Id" runat="server" />
 
@@ -70,6 +74,12 @@
             })
 
         </script>
+
+        <style>
+            body {
+                background-color: lightgray;
+            }
+        </style>
 
     </form>
 </body>

@@ -17,7 +17,16 @@ namespace LPT
             if (!IsPostBack)
             {
                 Session.Abandon();
+
+                if(Session["ConPassMsg"] != null)
+                {
+                    if(Session["ConPassMsg"].ToString() == "1")
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Password Sucessfully Updated')", true);
+                    }
+                }
             }
+
         }
         protected void Btn_login(object sender, EventArgs e)
         {
