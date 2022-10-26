@@ -4,49 +4,49 @@
 
 <html>
 <head runat="server">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 
-  <title>Admin</title>
+    <title>Admin</title>
 
-  <!-- Tell the browser to be responsive to screen width -->
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-   
+    <!-- Tell the browser to be responsive to screen width -->
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
 
-  <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
 
-  <script src="bower_components/bootstrap-colorpicker/src/js/colorpicker-color.js"></script>
-  <script src="bower_components/ckeditor/plugins/uicolor/dialogs/uicolor.js"></script>
-  <link href="bower_components/ckeditor/plugins/uicolor/dialogs/uicolor.css" rel="stylesheet" />
-  <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
-    
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+
+    <script src="bower_components/bootstrap-colorpicker/src/js/colorpicker-color.js"></script>
+    <script src="bower_components/ckeditor/plugins/uicolor/dialogs/uicolor.js"></script>
+    <link href="bower_components/ckeditor/plugins/uicolor/dialogs/uicolor.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     <style>
-        .has-error{
-            border:1px solid red;
+        .has-error {
+            border: 1px solid red;
         }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -74,8 +74,9 @@
                                     <li><a href="Index.aspx">Staff Master</a></li>
                                     <li><a href="Payroll.aspx">Payroll Rate Master</a></li>
                                     <li><a href="Payroll_List.aspx">Payroll List</a></li>
-                                     <li><a href="User_authentication.aspx">User Login</a></li>
-                                   <%-- <li class="dropdown">
+                                    <%--<li><a href="User_authentication.aspx">User Login</a></li>--%>
+                                    <li><a href="<%= ResolveUrl("~/") %>Logout.aspx">Logout</a></li>
+                                    <%-- <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="#">Action</a></li>
@@ -91,6 +92,9 @@
                                 <div class="navbar-form navbar-left" role="search">
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="navbar-search-input" placeholder="Search">
+                                    </div>
+                                    <div class="form-group">
+                                        <%--<a href="<%= ResolveUrl("~/") %>Logout.aspx">Logout</a>--%>
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +155,7 @@
                                                         <!-- start notification -->
                                                         <a href="#">
                                                             <i class="fa fa-users text-aqua"></i>5 new members joined today
-                      </a>
+                                                        </a>
                                                     </li>
                                                     <!-- end notification -->
                                                 </ul>
@@ -203,9 +207,14 @@
                                             <!-- The user image in the navbar-->
                                             <img src="#" class="" alt="">
                                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                            <span class="hidden-xs">Admin</span>
+                                            <%--<span id="Span1" runat="server" class="hidden-xs"><%=Session["UserId"].ToString()%></span>--%>
+                                            <span id="user_name" runat="server" class="hidden-xs"></span>                                          
                                         </a>
-                                       <%-- <ul class="dropdown-menu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            
+                                        <%--<i class="icon-key"></i>Log Out </a>--%>
+                                        </a>
+                                        <%-- <ul class="dropdown-menu">
                                             <!-- The user image in the menu -->
                                             <li class="user-header">
                                                 <img src="#" class="img-circle" alt="User Image">
@@ -214,8 +223,8 @@
                                                     <small></small>
                                                 </p>
                                             </li>--%>
-                                            <!-- Menu Body -->
-                                            <%--<li class="user-body">
+                                        <!-- Menu Body -->
+                                        <%--<li class="user-body">
                                                 <div class="row">
                                                     <div class="col-xs-4 text-center">
                                                         <a href="#">Followers</a>
@@ -238,53 +247,85 @@
                                                     <a href="#" class="btn btn-default btn-flat">Sign out</a>
                                                 </div>
                                             </li>--%>
-                                   <%--     </ul>
+                                        <%--     </ul>
                                     </li>
                                 </ul>--%>
-                               <%-- </div>--%>
+                                        <%-- </div>--%>
                             </div>
-                        </div>                       
-                    </nav>                   
+                        </div>
+                    </nav>
                 </header>
             </div>
-   
 
 
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
 
-
-    <!----Footer---->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="pull-right hidden-xs">
-                <b>Version:</b> Updated   
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
             </div>
-            <strong>Copyright &copy;2022 <a href="https://www.quinterocorp.com/">Quintero Solutions</a>.</strong> All rights
-      reserved.
-        </div>
-    </footer>
-    <!----Footer---->
-       
-    <!-- jQuery 3 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
-            
-    <!-- Bootstrap 3.3.7 --> 
-    <!-- SlimScroll -->
-    <script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../dist/js/demo.js"></script>
-</div>
+
+            <!----Footer---->
+            <footer class="main-footer">
+                <div class="container">
+                    <div class="pull-right hidden-xs">
+                        <b>Version:</b> Updated   
+                    </div>
+                    <strong>Copyright &copy;2022 <a href="https://www.quinterocorp.com/">Quintero Solutions</a>.</strong> All rights
+      reserved.
+                </div>
+            </footer>
+            <!----Footer---->
+
+            <!-- jQuery 3 -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+
+            <!-- Bootstrap 3.3.7 -->
+            <!-- SlimScroll -->
+            <script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+            <!-- FastClick -->
+            <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+            <!-- AdminLTE App -->
+            <script src="../../dist/js/adminlte.min.js"></script>
+            <!-- AdminLTE for demo purposes -->
+            <script src="../../dist/js/demo.js"></script>
+
+            <script>
+                function ClearSession() {
+                    $.ajax({
+
+                        type: "POST",
+                        dataType: "json",
+                        url: "Login.aspx/ClearSession",
+                        contentType: "application/json;charset=utf-8",
+                        data: '',
+
+                        success: function (result) {
+
+                            //debugger;
+                            if (result.d != '') {
+                                debugger;
+                                //alert(result.d);
+                                var res = JSON.parse(result.d);
+                                location.reload();
+                                alert(res);
+                                //window.location.href = './Login.aspx';
+                            }
+                        },
+                        error: function (errMsg) {
+                            console.log(errMsg);
+                            alert('Ooppss.. some error');
+                        }
+
+                    });
+                }
+            </script>
+
+        </div>
 
     </form>
-    
+
 </body>
 </html>

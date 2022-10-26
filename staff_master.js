@@ -1,14 +1,22 @@
 ﻿
-
 $(document).ready(function () {
+    $('#myTable').DataTable({
+
+        "order": [[0, "desc"]]
+
+    });
+
+});
+
+//$(document).ready(function () {
     //$('#myTable').DataTable();
     //"pageLength": 50
-    $('#myTable').dataTable({
-        "lengthMenu": [[2, 4, 8, -1], [2, 4, 8, "All"]],
-        "pageLength": 4
-    });
+    //$('#myTable').dataTable({
+    //    "lengthMenu": [[2, 4, 8, -1], [2, 4, 8, "All"]],
+    //    "pageLength": 4
+    //});
     
-});
+//});
 
 
 function editdata(object) {
@@ -41,6 +49,7 @@ function editdata(object) {
                     $('#staffname').val(value.staffname);
                     $('#phone').val(value.phone);
                     $('#email').val(value.email);
+                    $('#status').val(value.status).trigger();
                     $('#btn_save').text("Update");
 
                 });
@@ -63,6 +72,7 @@ function reset() {
     $('#btn_save').text("Save");
     $('#staffid').removeAttr('disabled', 'disabled');
     $('#staffid').val("");
+    $('#status').val("").trigger();
 }
 
 function deletedata(object) {
@@ -80,11 +90,13 @@ function deletedata(object) {
 
         success: function (result) {
 
+            location.reload();
             //debugger;
             if (result.d != '') {
+                alert("Deleted");
                 //alert(result.d);
-                var res = JSON.parse(result.d);
-                alert(res);
+                //var res = JSON.parse(result.d);
+                //alert(res);
             }         
         },
         error: function (errMsg) {
@@ -154,10 +166,13 @@ function savedata() {
         url: "Index.aspx/Showdata",
         success: function (Record) {
 
+            location.reload();
             $("#message").text(Record.d);
             $("#message").fadeIn('normal', function () {
                 $(this).delay(2500).fadeOut();
             });
+            reset();
+
         },
 
     });

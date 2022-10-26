@@ -7,10 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LPT {
+namespace LPT
+{
 
 
-    public partial class Login {
+    public partial class Login
+    {
 
         /// <summary>
         /// form1 control.
