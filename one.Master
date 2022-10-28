@@ -74,6 +74,7 @@
                                     <li><a href="Index.aspx">Staff Master</a></li>
                                     <li><a href="Payroll.aspx">Payroll Rate Master</a></li>
                                     <li><a href="Payroll_List.aspx">Payroll List</a></li>
+                                    <li><a href="DashBoard.aspx">Dashboard</a></li>
                                     <%--<li><a href="User_authentication.aspx">User Login</a></li>--%>
                                     <li><a href="<%= ResolveUrl("~/") %>Logout.aspx">Logout</a></li>
                                     <%-- <li class="dropdown">

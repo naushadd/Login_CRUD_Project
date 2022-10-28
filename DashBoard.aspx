@@ -1,7 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/one.Master" AutoEventWireup="true" CodeBehind="DashBoard.aspx.cs" Inherits="LPT.DashBoard" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/one.Master" AutoEventWireup="true" CodeBehind="DashBoard.aspx.cs" Inherits="LPT.DashBoard" ClientIDMode="Static" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
 
     <div class="container">
         <div class="portlet light bordered">
@@ -34,7 +37,10 @@
                                             </asp:LinkButton>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <asp:LinkButton ID="btnAddNew" runat="server">Evaluate Score</asp:LinkButton>
+                                                    <%--<asp:LinkButton runat="server" data-toggle="modal" data-target="#Modal">Evaluate Score</asp:LinkButton>--%>
+                                                    <a class="dropdown-item" data-toggle="modal" data-target="#ModalPopUp">Evaluate Score</a>
+
+                                                    <%--<a href="#" class="dropdown-item" onclick="OpenEvaluatePopUp(); return false;">Evaluate Score</a>--%>
 
                                                 </li>
 
@@ -85,9 +91,9 @@
                                     <tbody>
                                         <tr>
 
-                                              <td>
-                                            <input type="checkbox" class="chk" id="chkbox" attr_autoid='<%# Eval("App_Id") %>' />
-                                        </td>
+                                            <td>
+                                                <input type="checkbox" class="chk" id="chkbox" attr_autoid='<%# Eval("App_Id") %>' />
+                                            </td>
 
                                             <td>
                                                 <asp:Label ID="Label1" runat="server" Text='<%# Eval("Application_Name") %>'></asp:Label>
@@ -134,22 +140,124 @@
 
 
             <%--TEMPLATE PAGE START BELOW--%>
+
+            <div>
+                <div class="modal fade" id="ModalPopUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <%------------MODAL BODY START----------------%>
+
+
+                                <div>
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+
+                                                <asp:HiddenField ID="hid_Id" runat="server" Value="0" />
+
+                                                <div class="form-group">
+                                                    <label class="control-label">Application Name<span class="required" aria-required="true"> *</span></label>
+                                                    <asp:TextBox ID="txt_AppName" class="form-control req_cntrl" runat="server"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <%--   <div class="col-md-6">
+                                                <div class="form-group">
+
+                                                    <label class="control-label">Reader <span class="required" aria-required="true">*</span></label>
+                                                    <asp:TextBox ID="txt_Reader" class="form-control req_cntrl" runat="server"></asp:TextBox>
+                                                </div>
+                                            </div>--%>
+                                        </div>
+
+
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Resume Score<span class="required" aria-required="true"> *</span></label>
+                                                <asp:TextBox ID="txt_ResumeScore" class="form-control req_cntrl" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Video Score<span class="required" aria-required="true"> *</span></label>
+                                                <asp:TextBox ID="txt_VideoScore" class="form-control req_cntrl" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Hindi Video Status<span class="required" aria-required="true">*</span></label>
+                                                    <asp:DropDownList ID="txt_HVStatus" class="form-control req_cntrl" runat="server">
+                                                        <asp:ListItem Value="Qualified">Qualified</asp:ListItem>
+                                                        <asp:ListItem Value="Disqualified">Disqualified</asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Reading Score<span class="required" aria-required="true"> *</span></label>
+                                                    <asp:TextBox ID="txt_ReadingScore" class="form-control req_cntrl" runat="server"></asp:TextBox>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Reading Status<span class="required" aria-required="true">*</span></label>
+                                                    <asp:DropDownList ID="txt_ReadingStatus" class="form-control req_cntrl" runat="server">
+                                                        <asp:ListItem Value="Selected">Selected</asp:ListItem>
+                                                        <asp:ListItem Value="Not Selected">Not Selected</asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" onclick="SubmitDetails()">Submit</button>
+                            </div>
+                            <%------------MODAL BODY END----------------%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
+        <asp:HiddenField ID="App_Id" runat="server" Value="0" />
+
     </div>
 
 
 
 
     <style>
-        .drpbtn{
-            background-color:darkgray;
-            color:black;
-            border-radius:5px;
+        .drpbtn {
+            background-color: darkgray;
+            color: black;
+            border-radius: 5px;
         }
+
         #btnAction {
-            
             color: black;
         }
     </style>
 
+    <script src="Dashboad.js"></script>
 </asp:Content>

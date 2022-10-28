@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Data;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -20,11 +20,11 @@ namespace LPT.Dashboard_Master
 
         public int OpCode { get; set; }
         public int App_Id { get; set; }
-        public int Application_Name { get; set; }
+        public string Application_Name { get; set; }
         public string Reader { get; set; }
         public string Resume_Score { get; set; }
         public string Video_Score { get; set; }
-        public int H_V_Status { get; set; }
+        public string H_V_Status { get; set; }
         public string Reading_Score { get; set; }
         public string Reading_Status { get; set; }
         //public DateTime Updated_On { get; set; }

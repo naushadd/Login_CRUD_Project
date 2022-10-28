@@ -70,7 +70,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Ajax_Display.aspx" />
+    <Content Include="Dashboad.js" />
+    <Content Include="DashBoard.aspx" />
     <Content Include="Demo.aspx" />
+    <Content Include="Evaluate_Score.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Password_Reset.aspx" />
@@ -6608,12 +6611,28 @@
     <Compile Include="Ajax_Display.aspx.designer.cs">
       <DependentUpon>Ajax_Display.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DashBoard.aspx.cs">
+      <DependentUpon>DashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashBoard.aspx.designer.cs">
+      <DependentUpon>DashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard_Master\Dashboard_DL.cs" />
+    <Compile Include="Dashboard_Master\Dashboard_PL.cs" />
     <Compile Include="Demo.aspx.cs">
       <DependentUpon>Demo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Demo.aspx.designer.cs">
       <DependentUpon>Demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Evaluate_Score.aspx.cs">
+      <DependentUpon>Evaluate_Score.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Evaluate_Score.aspx.designer.cs">
+      <DependentUpon>Evaluate_Score.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

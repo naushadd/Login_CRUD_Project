@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services;
 
 namespace LPT
 {
@@ -26,5 +27,40 @@ namespace LPT
 
             }
         }
+
+
+
+        [WebMethod]
+        public static string AddDetail(string txt_AppName, string txt_Reader, string txt_ResumeScore, string txt_VideoScore, string txt_HVStatus, string txt_ReadingScore, string txt_ReadingStatus)
+        {
+
+            string msg = "";
+
+            Dashboard_PL PL = new Dashboard_PL();
+         
+
+            PL.Application_Name = txt_AppName;
+            PL.Reader = txt_Reader;
+            PL.Resume_Score = txt_ResumeScore;
+            PL.Video_Score = txt_VideoScore;
+            PL.H_V_Status = txt_HVStatus;
+            PL.Reading_Score = txt_ReadingScore;
+            PL.Reading_Status = txt_ReadingStatus;
+            
+
+            PL.OpCode = 11;
+
+
+            Dashboard_DL.SqlCon(PL);
+
+            if (!PL.isException)
+            {
+                msg = "Saved successfully";
+            }
+
+            return msg;
+        }
+
+
     }
 }
