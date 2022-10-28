@@ -73,7 +73,6 @@
     <Content Include="Dashboad.js" />
     <Content Include="DashBoard.aspx" />
     <Content Include="Demo.aspx" />
-    <Content Include="Evaluate_Score.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Password_Reset.aspx" />
@@ -6626,13 +6625,6 @@
     </Compile>
     <Compile Include="Demo.aspx.designer.cs">
       <DependentUpon>Demo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Evaluate_Score.aspx.cs">
-      <DependentUpon>Evaluate_Score.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Evaluate_Score.aspx.designer.cs">
-      <DependentUpon>Evaluate_Score.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
