@@ -38,7 +38,6 @@ namespace LPT
 
             Dashboard_PL PL = new Dashboard_PL();
          
-
             PL.Application_Name = txt_AppName;
             PL.Reader = txt_Reader;
             PL.Resume_Score = txt_ResumeScore;
@@ -47,9 +46,7 @@ namespace LPT
             PL.Reading_Score = txt_ReadingScore;
             PL.Reading_Status = txt_ReadingStatus;
             
-
             PL.OpCode = 11;
-
 
             Dashboard_DL.SqlCon(PL);
 
