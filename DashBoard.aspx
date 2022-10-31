@@ -37,15 +37,18 @@
                                             </asp:LinkButton>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <%--<asp:LinkButton runat="server" data-toggle="modal" data-target="#Modal">Evaluate Score</asp:LinkButton>--%>
-                                                    <a class="dropdown-item" data-toggle="modal" data-target="#ModalPopUp">Evaluate Score</a>
+                                                    <asp:LinkButton runat="server" data-toggle="modal" data-target="#ModalPopUp">Evaluate Score</asp:LinkButton>
+
+<%--                                                    <a class="dropdown-item" data-toggle="modal" data-target="#ModalPopUp">Evaluate Score</a>--%>
 
                                                     <%--<a href="#" class="dropdown-item" onclick="OpenEvaluatePopUp(); return false;">Evaluate Score</a>--%>
 
                                                 </li>
 
                                                 <li>
-                                                    <asp:LinkButton ID="lnkEdit" runat="server">Assign Reader</asp:LinkButton>
+                                                    <a class="dropdown-item" data-toggle="modal" data-target="#AssignReaderPopUp" onclick="AssignReader()">Assign Reader</a>
+
+                                 <%--                   <asp:LinkButton runat="server" data-toggle="modal" data-target="#AssignReaderPopUp">Assign Reader</asp:LinkButton>--%>
                                                 </li>
 
                                             </ul>
@@ -56,7 +59,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <br />
                     <%--List View Start below--%>
                     <div class="row">
 
@@ -72,7 +75,6 @@
                                                 <th <%--class="table-checkbox"--%> width="2%">
                                                     <input type="checkbox" /></th>
                                                 <th>Application_Name</th>
-                                                <th>Reader </th>
                                                 <th>Resume Score</th>
                                                 <th>Video Score</th>
                                                 <th>Hindi Video Status</th>
@@ -99,9 +101,6 @@
                                                 <asp:Label ID="Label1" runat="server" Text='<%# Eval("Application_Name") %>'></asp:Label>
                                             </td>
 
-                                            <td>
-                                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("Reader") %>'></asp:Label>
-                                            </td>
 
                                             <td>
                                                 <asp:Label ID="Label6" runat="server" Text='<%# Eval("Resume_Score") %>'></asp:Label>
@@ -139,7 +138,7 @@
             <%--LIST PAGE End--%>
 
 
-            <%--TEMPLATE PAGE START BELOW--%>
+            <%--MODAL START START BELOW--%>
 
             <div>
                 <div class="modal fade" id="ModalPopUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -168,23 +167,17 @@
                                                     <asp:TextBox ID="txt_AppName" class="form-control req_cntrl" runat="server"></asp:TextBox>
                                                 </div>
                                             </div>
-                                            <%--   <div class="col-md-6">
+
+                                            <div class="col-md-6">
                                                 <div class="form-group">
-
-                                                    <label class="control-label">Reader <span class="required" aria-required="true">*</span></label>
-                                                    <asp:TextBox ID="txt_Reader" class="form-control req_cntrl" runat="server"></asp:TextBox>
+                                                    <label class="control-label">Resume Score<span class="required" aria-required="true"> *</span></label>
+                                                    <asp:TextBox ID="txt_ResumeScore" class="form-control req_cntrl" runat="server"></asp:TextBox>
                                                 </div>
-                                            </div>--%>
-                                        </div>
-
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label">Resume Score<span class="required" aria-required="true"> *</span></label>
-                                                <asp:TextBox ID="txt_ResumeScore" class="form-control req_cntrl" runat="server"></asp:TextBox>
                                             </div>
+
                                         </div>
+
+
 
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -193,7 +186,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Hindi Video Status<span class="required" aria-required="true">*</span></label>
                                                     <asp:DropDownList ID="txt_HVStatus" class="form-control req_cntrl" runat="server">
@@ -203,14 +196,14 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Reading Score<span class="required" aria-required="true"> *</span></label>
                                                     <asp:TextBox ID="txt_ReadingScore" class="form-control req_cntrl" runat="server"></asp:TextBox>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Reading Status<span class="required" aria-required="true">*</span></label>
                                                     <asp:DropDownList ID="txt_ReadingStatus" class="form-control req_cntrl" runat="server">
@@ -219,13 +212,9 @@
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
-
                                         </div>
-
                                     </div>
-
                                 </div>
-
                             </div>
 
                             <div class="modal-footer">
@@ -236,14 +225,63 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                <%--Evaluate End--%>
 
+
+                <%--ASSIGN READER START--%>
+
+                <div>
+                    <div class="modal fade" id="AssignReaderPopUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="ModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <%------------MODAL BODY START----------------%>
+
+                                    <div>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <div class="col-md-6">
+                                                        <label class="control-label">Assign Reader<span class="required" aria-required="true">*</span></label>
+                                                    </div>
+
+
+                                                    <div class="col-sm-6">
+                                                        <asp:DropDownList ID="ddlReadingStatus" class="form-control req_cntrl" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <%--<button type="button" class="btn btn-primary" onclick="AssignReader()">Assign</button>--%>
+                                    <asp:Button ID="Button1" runat="server" Text="Assign" />
+                                </div>
+                            </div>
+
+                            <%------------MODAL BODY END----------------%>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <asp:HiddenField ID="App_Id" runat="server" Value="0" />
 
+        <%--ASSIGN READER--%>
     </div>
 
+
+    <asp:HiddenField ID="App_Id" runat="server" Value="0" />
 
 
 

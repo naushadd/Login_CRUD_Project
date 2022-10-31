@@ -24,13 +24,13 @@ namespace LPT.Dashboard_Master
 
                 cmd.Parameters.AddWithValue("@App_Id", PL.App_Id);
                 cmd.Parameters.AddWithValue("@Application_Name ", PL.Application_Name);
-                cmd.Parameters.AddWithValue("@Reader ", PL.Reader);
                 cmd.Parameters.AddWithValue("@Resume_Score", PL.Resume_Score);
                 cmd.Parameters.AddWithValue("@Video_Score", PL.Video_Score);
                 cmd.Parameters.AddWithValue("@H_V_Status", PL.H_V_Status);
                 cmd.Parameters.AddWithValue("@Reading_Score", PL.Reading_Score);
                 cmd.Parameters.AddWithValue("@Reading_Status", PL.Reading_Status);
-                //cmd.Parameters.AddWithValue("@Updated_By", PL.Updated_By);
+                cmd.Parameters.AddWithValue("@Updated_By", PL.Updated_By);
+                cmd.Parameters.AddWithValue("@Reader", PL.Reader);
 
 
 

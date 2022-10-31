@@ -1,10 +1,4 @@
-﻿////function OpenEvaluatePopUp() {
-////    debugger;
-
-////    $("#ModalPopUp").modal({ backdrop: 'static', keyboard: false });
-////    $("#ModalPopUp").show();
-////}
-
+﻿
 function SubmitDetails() {
     //debugger;
     
@@ -16,7 +10,6 @@ function SubmitDetails() {
     var Reading_Score = $.trim($('#txt_ReadingScore').val());
     var Reading_Status = $.trim($('#txt_ReadingStatus').val());
 
- 
 
     var data = {};
 
@@ -48,4 +41,44 @@ function SubmitDetails() {
 
 }
 //Email_Template Save End.
+
+
+function AssignReader() {
+
+    var count = 0;
+    $(".chk").each(function () {
+        if ($(this).prop('checked')) {
+            count = count + 1;
+        }
+    })
+    //alert(count);
+    if (count > 1) {
+
+        alert("Please select only 1");
+        $('#AssignReaderPopUp').modal('hide');
+        //return false;
+        return;
+    }
+
+    if (count == 0) {
+
+        alert("Please select atleast 1");
+        $('#AssignReaderPopUp').modal('hide');
+
+        //return false;
+        return;
+    }
+
+
+    //var attr_autoId;
+    $('.chk').each(function () {
+        //alert($(this).prop('checked'))
+        if ($(this).prop('checked')) {
+            attr_autoId = $(this).attr('attr_autoid');
+            alert(attr_autoId);
+        }
+
+    });
+
+}
 
