@@ -16,15 +16,7 @@ namespace LPT
         {
             if (!IsPostBack)
             {
-                Dashboard_PL Pl = new Dashboard_PL();
-                Pl.OpCode = 41;
-                Dashboard_DL.SqlCon(Pl);
-                if (Pl.dt != null && Pl.dt.Rows.Count > 0)
-                {
-                    DSLV.DataSource = Pl.dt;
-                    DSLV.DataBind();
-
-                }
+                ShowReader();
             }
 
 
@@ -51,7 +43,8 @@ namespace LPT
                 if (PL.ds.Tables[0].Rows.Count > 0)
                 {
                     ddlReadingStatus.DataSource = PL.ds.Tables[0];
-                    ddlReadingStatus.DataValueField = "Id";
+                    //ddlReadingStatus.DataValueField = "Id";
+                    ddlReadingStatus.DataTextField = "Id";
                     ddlReadingStatus.DataTextField = "User_Name";
 
                     ddlReadingStatus.DataBind();
@@ -101,6 +94,43 @@ namespace LPT
             return msg;
         }
 
+  
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            
+            Dashboard_PL pL = new Dashboard_PL();
+
+            pL.Reader = ddlReadingStatus.SelectedValue;
+
+
+            if (hid_Id.Value != "")
+            {
+                pL.OpCode = 12;
+                pL.App_Id = Convert.ToInt32(hid_Id.Value);
+
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Added Successfully')", true);
+            }
+
+            Dashboard_DL.SqlCon(pL);
+            ShowReader();
+        }
+
+
+        public void ShowReader()
+        {
+
+            Dashboard_PL Pl = new Dashboard_PL();
+            Pl.OpCode = 41;
+            Dashboard_DL.SqlCon(Pl);
+            if (Pl.dt != null && Pl.dt.Rows.Count > 0)
+            {
+                DSLV.DataSource = Pl.dt;
+                DSLV.DataBind();
+
+            }
+
+        }
     }
+    
 }

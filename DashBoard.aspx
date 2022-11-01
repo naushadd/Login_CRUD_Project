@@ -39,16 +39,11 @@
                                                 <li>
                                                     <asp:LinkButton runat="server" data-toggle="modal" data-target="#ModalPopUp">Evaluate Score</asp:LinkButton>
 
-<%--                                                    <a class="dropdown-item" data-toggle="modal" data-target="#ModalPopUp">Evaluate Score</a>--%>
-
-                                                    <%--<a href="#" class="dropdown-item" onclick="OpenEvaluatePopUp(); return false;">Evaluate Score</a>--%>
-
                                                 </li>
 
                                                 <li>
-                                                    <a class="dropdown-item" data-toggle="modal" data-target="#AssignReaderPopUp" onclick="AssignReader()">Assign Reader</a>
+                                                    <a class="dropdown-item" onclick="AssignReader()">Assign Reader</a>
 
-                                 <%--                   <asp:LinkButton runat="server" data-toggle="modal" data-target="#AssignReaderPopUp">Assign Reader</asp:LinkButton>--%>
                                                 </li>
 
                                             </ul>
@@ -75,6 +70,7 @@
                                                 <th <%--class="table-checkbox"--%> width="2%">
                                                     <input type="checkbox" /></th>
                                                 <th>Application_Name</th>
+                                                <th>Reader</th>
                                                 <th>Resume Score</th>
                                                 <th>Video Score</th>
                                                 <th>Hindi Video Status</th>
@@ -85,7 +81,6 @@
                                         <tr id="ItemPlaceholder" runat="server"></tr>
 
                                     </table>
-                                    <asp:HiddenField ID="hidId" Value="0" runat="server" />
 
                                 </LayoutTemplate>
 
@@ -97,8 +92,13 @@
                                                 <input type="checkbox" class="chk" id="chkbox" attr_autoid='<%# Eval("App_Id") %>' />
                                             </td>
 
+
                                             <td>
                                                 <asp:Label ID="Label1" runat="server" Text='<%# Eval("Application_Name") %>'></asp:Label>
+                                            </td>
+
+                                            <td>
+                                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("Reader") %>'></asp:Label>
                                             </td>
 
 
@@ -160,7 +160,6 @@
                                         <div class="row">
                                             <div class="col-md-6">
 
-                                                <asp:HiddenField ID="hid_Id" runat="server" Value="0" />
 
                                                 <div class="form-group">
                                                     <label class="control-label">Application Name<span class="required" aria-required="true"> *</span></label>
@@ -228,7 +227,7 @@
                 <%--Evaluate End--%>
 
 
-                <%--ASSIGN READER START--%>
+                <%--ASSIGN READER MODAL START--%>
 
                 <div>
                     <div class="modal fade" id="AssignReaderPopUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -241,9 +240,6 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-
-                                    <%------------MODAL BODY START----------------%>
-
                                     <div>
                                         <div class="form-body">
                                             <div class="row">
@@ -265,23 +261,26 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <%--<button type="button" class="btn btn-primary" onclick="AssignReader()">Assign</button>--%>
-                                    <asp:Button ID="Button1" runat="server" Text="Assign" />
+                                    <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Assign" OnClick="Button1_Click" />
                                 </div>
                             </div>
-
-                            <%------------MODAL BODY END----------------%>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
         <%--ASSIGN READER--%>
     </div>
 
+      
 
-    <asp:HiddenField ID="App_Id" runat="server" Value="0" />
+    <asp:HiddenField ID="hid_Id" runat="server" ClientIDMode="Static"/>
+
+
+
+ 
+
 
 
 
@@ -296,6 +295,11 @@
             color: black;
         }
     </style>
+
+
+
+   
+
 
     <script src="Dashboad.js"></script>
 </asp:Content>

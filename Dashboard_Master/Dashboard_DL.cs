@@ -43,9 +43,15 @@ namespace LPT.Dashboard_Master
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 PL.ds = new DataSet();
                 sda.Fill(PL.ds);
-                if (PL.ds.Tables.Count > 0)
+
+                //if (PL.ds.Tables.Count > 0)
+                //{
+                //    PL.dt = PL.ds.Tables[0];
+                //}
+
+                if (PL.ds != null && PL.ds.Tables.Count > 0)
                 {
-                    PL.dt = PL.ds.Tables[0];
+                    PL.dt = PL.ds.Tables[0].Copy();
                 }
 
                 //SqlDataAdapter sdt = new SqlDataAdapter(cmd);
