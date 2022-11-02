@@ -23,7 +23,7 @@ namespace LPT.Dashboard_Master
                 cmd.Parameters.AddWithValue("@OpCode", PL.OpCode);
 
                 cmd.Parameters.AddWithValue("@App_Id", PL.App_Id);
-                cmd.Parameters.AddWithValue("@Application_Name ", PL.Application_Name);
+                //cmd.Parameters.AddWithValue("@Application_Name ", PL.Application_Name);
                 cmd.Parameters.AddWithValue("@Resume_Score", PL.Resume_Score);
                 cmd.Parameters.AddWithValue("@Video_Score", PL.Video_Score);
                 cmd.Parameters.AddWithValue("@H_V_Status", PL.H_V_Status);

@@ -20,7 +20,7 @@ namespace LPT.Dashboard_Master
 
         public int OpCode { get; set; }
         public int App_Id { get; set; }
-        public string Application_Name { get; set; }
+        //public string Application_Name { get; set; }
         public string Resume_Score { get; set; }
         public string Video_Score { get; set; }
         public string H_V_Status { get; set; }

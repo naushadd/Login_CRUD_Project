@@ -37,7 +37,7 @@
                                             </asp:LinkButton>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <asp:LinkButton runat="server" data-toggle="modal" data-target="#ModalPopUp">Evaluate Score</asp:LinkButton>
+                                                    <a class="dropdown-item" onclick="EvaluateScore()">Evaluate Score</a>
 
                                                 </li>
 
@@ -69,7 +69,7 @@
                                             <tr>
                                                 <th <%--class="table-checkbox"--%> width="2%">
                                                     <input type="checkbox" /></th>
-                                                <th>Application_Name</th>
+                                                <th>Applicant Name</th>
                                                 <th>Reader</th>
                                                 <th>Resume Score</th>
                                                 <th>Video Score</th>
@@ -89,7 +89,7 @@
                                         <tr>
 
                                             <td>
-                                                <input type="checkbox" class="chk" id="chkbox" attr_autoid='<%# Eval("App_Id") %>' />
+                                                <input type="checkbox" class="chk" id="chkbox" attr_autoid='<%# Eval("App_Id") %>' IsAssign='<%# Eval("IsAssign") %>'/>
                                             </td>
 
 
@@ -158,16 +158,8 @@
                                 <div>
                                     <div class="form-body">
                                         <div class="row">
-                                            <div class="col-md-6">
 
-
-                                                <div class="form-group">
-                                                    <label class="control-label">Application Name<span class="required" aria-required="true"> *</span></label>
-                                                    <asp:TextBox ID="txt_AppName" class="form-control req_cntrl" runat="server"></asp:TextBox>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="control-label">Resume Score<span class="required" aria-required="true"> *</span></label>
                                                     <asp:TextBox ID="txt_ResumeScore" class="form-control req_cntrl" runat="server"></asp:TextBox>
@@ -176,38 +168,38 @@
 
                                         </div>
 
-
-
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="control-label">Video Score<span class="required" aria-required="true"> *</span></label>
                                                 <asp:TextBox ID="txt_VideoScore" class="form-control req_cntrl" runat="server"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="control-label">Hindi Video Status<span class="required" aria-required="true">*</span></label>
                                                     <asp:DropDownList ID="txt_HVStatus" class="form-control req_cntrl" runat="server">
-                                                        <asp:ListItem Value="Qualified">Qualified</asp:ListItem>
-                                                        <asp:ListItem Value="Disqualified">Disqualified</asp:ListItem>
+                                                        <asp:ListItem Value="0">0</asp:ListItem>
+                                                        <asp:ListItem Text="Qualified">Qualified</asp:ListItem>
+                                                        <asp:ListItem Text="Disqualified">Disqualified</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="control-label">Reading Score<span class="required" aria-required="true"> *</span></label>
                                                     <asp:TextBox ID="txt_ReadingScore" class="form-control req_cntrl" runat="server"></asp:TextBox>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="control-label">Reading Status<span class="required" aria-required="true">*</span></label>
                                                     <asp:DropDownList ID="txt_ReadingStatus" class="form-control req_cntrl" runat="server">
-                                                        <asp:ListItem Value="Selected">Selected</asp:ListItem>
-                                                        <asp:ListItem Value="Not Selected">Not Selected</asp:ListItem>
+                                                        <asp:ListItem Value="0">0</asp:ListItem>
+                                                        <asp:ListItem Text="Selected">Selected</asp:ListItem>
+                                                        <asp:ListItem Text="Not Selected">Not Selected</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
@@ -218,7 +210,7 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" onclick="SubmitDetails()">Submit</button>
+                                <asp:Button ID="Button2" CssClass="btn btn-primary" runat="server" OnClick="SubmitEvaluate_Click" Text="Submit" />
                             </div>
                             <%------------MODAL BODY END----------------%>
                         </div>

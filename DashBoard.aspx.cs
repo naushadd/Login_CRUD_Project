@@ -63,37 +63,6 @@ namespace LPT
 
         }
 
-
-
-
-        [WebMethod]
-        public static string AddDetail(string txt_AppName, string txt_ResumeScore, string txt_VideoScore, string txt_HVStatus, string txt_ReadingScore, string txt_ReadingStatus)
-        {
-
-            string msg = "";
-
-            Dashboard_PL PL = new Dashboard_PL();
-         
-            PL.Application_Name = txt_AppName;
-            PL.Resume_Score = txt_ResumeScore;
-            PL.Video_Score = txt_VideoScore;
-            PL.H_V_Status = txt_HVStatus;
-            PL.Reading_Score = txt_ReadingScore;
-            PL.Reading_Status = txt_ReadingStatus;
-
-            //PL.Updated_By = HttpContext.Current.Session["Id"].ToString();
-            PL.OpCode = 11;
-
-            Dashboard_DL.SqlCon(PL);
-
-            if (!PL.isException)
-            {
-                msg = "Saved successfully";
-            }
-
-            return msg;
-        }
-
   
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -129,6 +98,31 @@ namespace LPT
                 DSLV.DataBind();
 
             }
+
+        }
+
+        protected void SubmitEvaluate_Click(object sender, EventArgs e)
+        {
+
+            Dashboard_PL pL = new Dashboard_PL();
+
+            pL.Resume_Score = txt_ResumeScore.Text;
+            pL.Video_Score = txt_VideoScore.Text;
+            pL.H_V_Status = txt_HVStatus.SelectedValue;
+            pL.Reading_Score = txt_ReadingScore.Text;
+            pL.Reading_Status = txt_ReadingStatus.SelectedValue;
+
+
+            if (hid_Id.Value != "")
+            {
+                pL.OpCode = 11;
+                pL.App_Id = Convert.ToInt32(hid_Id.Value);
+
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Added Successfully')", true);
+            }
+
+            Dashboard_DL.SqlCon(pL);
+            ShowReader();
 
         }
     }
