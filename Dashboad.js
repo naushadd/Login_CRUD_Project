@@ -29,11 +29,13 @@
 
         var attr_autoId;
         var Assign;
+        var ReaderId;
         $('.chk').each(function () {
             
             if ($(this).prop('checked') && $(this).attr('IsAssign')=="1") {
                 attr_autoId = $(this).attr('attr_autoid');
                 Assign = $(this).attr('IsAssign');
+                ReaderId = $(this).attr('ReaderId');
                 //alert(attr_autoId);
             }
         });
@@ -43,6 +45,16 @@
             jQuery.noConflict();
             $('#ModalPopUp').modal('show');
             $("#hid_Id").val(attr_autoId);
+        }
+        else {
+            alert("Not Allowed");
+        }
+
+        if (ReaderId == attr_autoId) {
+
+            jQuery.noConflict();
+            $('#ModalPopUp').modal('show');
+            $("#hid_Id").val(ReaderId);
         }
         else {
             alert("Not Allowed");
