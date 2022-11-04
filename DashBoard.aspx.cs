@@ -65,7 +65,7 @@ namespace LPT
 
   
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void AssignReader_Click(object sender, EventArgs e)
         {
             
             Dashboard_PL pL = new Dashboard_PL();

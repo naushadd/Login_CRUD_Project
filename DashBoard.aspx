@@ -253,7 +253,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <%--<button type="button" class="btn btn-primary" onclick="AssignReader()">Assign</button>--%>
-                                    <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Assign" OnClick="Button1_Click" />
+                                    <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Assign" OnClick="AssignReader_Click" />
                                 </div>
                             </div>
                         </div>
